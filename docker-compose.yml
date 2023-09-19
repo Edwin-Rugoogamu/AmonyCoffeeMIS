@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  amonycoffeemi:
+    image: amonycoffeemi
+    ports:
+      - "8080:80"
+    networks:
+      - my-network
+
+  sqlite-network:
+    image: keinos/sqlite3
+    networks:
+      - my-network
+
+networks:
+  my-network:

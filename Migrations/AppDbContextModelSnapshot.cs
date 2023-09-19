@@ -42,7 +42,7 @@ namespace AmonyCoffeeMIS.Migrations
 
                     b.HasIndex("FarmerId");
 
-                    b.ToTable("Deliveries", (string)null);
+                    b.ToTable("Deliveries");
                 });
 
             modelBuilder.Entity("AmonyCoffeeMIS.Data.Entities.Farmer", b =>
@@ -67,7 +67,7 @@ namespace AmonyCoffeeMIS.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Farmer", (string)null);
+                    b.ToTable("Farmer");
                 });
 
             modelBuilder.Entity("AmonyCoffeeMIS.Data.Entities.Delivery", b =>

@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
@@ -33,35 +33,33 @@ jobs:
        
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v2
         with: 
           dotnet-version: 6.0.x
           
       - run: dotnet test
       
-  # docker:
-  #   runs-on: ubuntu-latest
-  #   needs: test
+  docker:
+    runs-on: ubuntu-latest
+    needs: test
 
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Build the Docker image
-  #       run: docker build . --file Dockerfile --tag amonycoffeemi:$(date +%s)
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag amonycoffeemi:$(date +%s)
 
-  # deployment:
-  #   runs-on: ubuntu-latest
-  #   needs: test
-  #   strategy:
-  #     matrix:
-  #       node-version: [18.x]
+  deployment:
+    runs-on: ubuntu-latest
+    needs: test
+    strategy:
+      matrix:
+        node-version: [18.x]
 
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Use Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #         cache: 'npm'
-  #     - run: curl https://api.render.com/deploy/srv-cjv0uh15mpss738jutsg     
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy
+        uses: actions/setup-node@v2
+          
+      - run: curl https://api.render.com/deploy/srv-cjv0uh15mpss738jutsg     

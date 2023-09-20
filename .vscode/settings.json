@@ -1,4 +1,11 @@
+
 {
+  "dotnetAcquisitionExtension.existingDotnetPath": [
+    {
+        "extensionId": "ms-dotnettools.csharp",
+        "path": "C:\\Program Files\\dotnet\\dotnet.exe"
+    }
+  ],
   "sqltools.useNodeRuntime": true,
   "sqltools.connections": [
     {

@@ -62,4 +62,4 @@ jobs:
       - name: Deploy
         uses: actions/setup-node@v3
         
-      - run: curl ${{ RENDER_BUILD_HOOK_AMONYCOFFEE }}     
+      - run: curl ${{secret.RENDER_BUILD_HOOK_AMONYCOFFEE }}     

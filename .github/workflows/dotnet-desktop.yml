@@ -62,4 +62,4 @@ jobs:
       - name: Deploy
         uses: actions/setup-node@v3
           
-      - run: curl https://api.render.com/deploy/srv-cjv0uh15mpss738jutsg     
+      - run: curl ${{secret.RENDER_BUILD_HOOK_AMONYCOFFEE }}     
